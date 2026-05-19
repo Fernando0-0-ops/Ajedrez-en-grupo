@@ -1,5 +1,5 @@
 ﻿using System;
-
+//
 class Jugador
 {
     public string nombre;
