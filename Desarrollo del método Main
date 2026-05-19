@@ -1,0 +1,29 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string[,] tablero = new string[8, 8];
+
+        Inicializar(tablero);
+        Mostrar(tablero);
+
+        // Ejemplo de movimiento
+        Console.WriteLine("\nMover pieza (ejemplo: 6 0 4 0)");
+        Console.Write("Fila origen: ");
+        int fo = int.Parse(Console.ReadLine());
+        Console.Write("Columna origen: ");
+        int co = int.Parse(Console.ReadLine());
+        Console.Write("Fila destino: ");
+        int fd = int.Parse(Console.ReadLine());
+        Console.Write("Columna destino: ");
+        int cd = int.Parse(Console.ReadLine());
+
+        Mover(tablero, fo, co, fd, cd);
+
+        Console.WriteLine("\nTablero actualizado:");
+        Mostrar(tablero);
+    }
+
+    
