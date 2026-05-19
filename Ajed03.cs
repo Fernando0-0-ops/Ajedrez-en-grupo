@@ -1,6 +1,6 @@
 ﻿class Program
 {
-	static void Main(string[] args)
+	static void Main()
 	{
 		string usuarioCorrecto = "admin";
 		string contraseñaCorrecta = "Admin123!";
