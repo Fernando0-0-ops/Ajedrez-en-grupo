@@ -1,5 +1,5 @@
 ﻿using System;
-//
+
 class Jugador
 {
     public string nombre;
@@ -19,7 +19,6 @@ class SistemaPuntaje
     public string mejorJugador = "";
 
     // CALCULAR PUNTOS
-    //Función que recibe un tipo de pieza y devuelve puntos. devuelve un int 
     public int CalcularPuntaje(string tipo)
     {
         if (tipo == "Soldado")
@@ -41,14 +40,10 @@ class SistemaPuntaje
     }
 
     // GUARDAR RECORD
-    //Función para guardar el récord.
     public void GuardarRecord(Jugador ganador)
     {
-        //ganador pasa a representar al jugador que ganó la partida, y se compara su puntaje con el puntaje máximo registrado.
-        //Si el puntaje del ganador es mayor que el puntaje máximo, se actualiza el puntaje máximo y se guarda el nombre del mejor jugador.
         if (ganador.puntaje > puntajeMaximo)
         {
-            //guardamos el nuevo puntaje y nombre
             puntajeMaximo = ganador.puntaje;
             mejorJugador = ganador.nombre;
         }
@@ -68,5 +63,57 @@ class SistemaPuntaje
             Console.WriteLine("Jugador: " + mejorJugador);
             Console.WriteLine("Puntaje: " + puntajeMaximo);
         }
+    }
+}
+
+class Program
+{
+    static void CapturarPieza
+    (
+        Pieza[,] tablero,
+        int filaOrigen,
+        int columnaOrigen,
+        int filaDestino,
+        int columnaDestino,
+        Jugador jugadorActual,
+        SistemaPuntaje sistemaPuntaje
+    )
+    {
+        Pieza piezaDestino;
+
+        piezaDestino = tablero[filaDestino, columnaDestino];
+
+        if (piezaDestino != null)
+        {
+            if (piezaDestino.jugador != tablero[filaOrigen, columnaOrigen].jugador)
+            {
+                Console.WriteLine("\nCAPTURA!");
+
+                Console.WriteLine
+                (
+                    tablero[filaOrigen, columnaOrigen].tipo + " capturo a " + piezaDestino.tipo );
+
+                int puntos;
+
+                puntos = sistemaPuntaje.CalcularPuntaje(piezaDestino.tipo);
+
+                jugadorActual.puntaje =
+                jugadorActual.puntaje + puntos;
+
+                Console.WriteLine("Puntos ganados: " + puntos);
+
+                Console.WriteLine
+                (
+                    "Puntaje total: " +
+                    jugadorActual.puntaje
+                );
+
+                tablero[filaDestino, columnaDestino] = null;
+            }
+        }
+
+        tablero[filaDestino, columnaDestino] =  tablero[filaOrigen, columnaOrigen];
+
+        tablero[filaOrigen, columnaOrigen] = null;
     }
 }
