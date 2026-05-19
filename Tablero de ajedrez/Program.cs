@@ -1,6 +1,6 @@
 ﻿using System;
 //Clase Jugador y Pieza//
-class Jugador
+class Jugador//
 {
     public string nombre;
     public string color;
