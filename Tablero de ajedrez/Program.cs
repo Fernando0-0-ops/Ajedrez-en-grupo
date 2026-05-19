@@ -1,5 +1,5 @@
 ﻿using System;
-//Clase Jugador y Pieza
+//Clase Jugador y Pieza//
 class Jugador
 {
     public string nombre;
